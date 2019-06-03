@@ -24,4 +24,5 @@ GetTabularOutlierScore <- function(datasetname) {
   }
   }
 
-GetTabularOutlierScore(datasetname = "WDBC_withoutdupl_norm_v07.results")
+# example 
+# GetTabularOutlierScore(datasetname = "WDBC_withoutdupl_norm_v07.results")
