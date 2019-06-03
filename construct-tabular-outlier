@@ -1,4 +1,3 @@
-setwd("~/R Language Default Dir/multiview-oneclass/")
 source("R/load-packages.R")
 
 
