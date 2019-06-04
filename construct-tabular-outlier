@@ -19,7 +19,7 @@ GetTabularOutlierScore <- function(datasetname) {
       list.columns[[i]] <- DT
     }
     DTtabular <- dplyr::bind_cols(list.columns)
-    fwrite(DTtabular, paste0("data/derived-data/", datasetname, ".csv"))
+    fwrite(DTtabular, paste0("data/derived-data/", datasetname, ".csv"), nThread = 2)
     return(DTtabular)
   }
   }
