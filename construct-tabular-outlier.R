@@ -7,10 +7,10 @@ GetTabularOutlierScore <- function(datasetname) {
   
   list.columns <- list()
   for (i in 1:dim(text.loaded)[1]) {
-    DTtext <- as.data.table(text.loaded$text[i])
-    DTtext1 <- as.data.table(str_split(DTtext, " "))
+    DTtext <- data.table::as.data.table(text.loaded$text[i])
+    DTtext1 <- data.table::as.data.table(str_split(DTtext, " "))
     if(i == 1){
-      setnames(DTtext1, "V1", "Label")
+      data.table::setnames(DTtext1, "V1", "Label")
       DT <- DTtext1[-1] 
       list.columns[[i]] <- DT
     } else{
@@ -19,7 +19,7 @@ GetTabularOutlierScore <- function(datasetname) {
       list.columns[[i]] <- DT
     }
     DTtabular <- dplyr::bind_cols(list.columns)
-    fwrite(DTtabular, paste0("data/derived-data/", datasetname, ".csv"), nThread = 2)
+    data.table::fwrite(DTtabular, paste0("data/derived-data/", datasetname, ".csv"), nThread = 2)
     return(DTtabular)
   }
   }
